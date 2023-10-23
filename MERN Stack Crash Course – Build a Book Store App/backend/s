@@ -1,0 +1,18 @@
+function measureTime(callback) {
+    const startTime = performance.now();
+    callback();
+    const endTime = performance.now();
+    const executionTime = endTime - startTime;
+
+    return executionTime;
+}
+
+function calculate() {
+    let result = 0;
+    for (let i = 0; i < 1000000; i++) {
+        result += i;
+    }
+}
+
+const executionTime = measureTime(calculate);
+console.log("Execution Time: "+ executionTime + " milliseconds");
